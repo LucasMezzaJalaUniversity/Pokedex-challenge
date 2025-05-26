@@ -1,0 +1,13 @@
+.category-tag {
+  display: flex;
+  align-items: center;
+  padding: 4px
+}
+
+.category-green {
+  background-color: green;
+}
+
+.category-purple {
+  background-color: purple;
+}

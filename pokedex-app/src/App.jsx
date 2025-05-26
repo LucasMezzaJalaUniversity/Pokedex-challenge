@@ -3,14 +3,14 @@ import { PokemonCard } from './components/organisms/PokemonCard'
 
 function App() {
   const pokemon = {
-    image: 'bulbasaur.png', 
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', 
     categories: [
       {
-        image: 'grass.svg',
+        image: "",
         category: 'Grass'
       },
       {
-        image: 'poison.svg',
+        image: "",
         category: 'Poison'
       }
     ], 

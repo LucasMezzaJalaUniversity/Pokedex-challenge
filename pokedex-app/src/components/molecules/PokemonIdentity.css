@@ -1,0 +1,4 @@
+.pokemon-identity {
+  display: flex;
+  flex-direction: column;
+}

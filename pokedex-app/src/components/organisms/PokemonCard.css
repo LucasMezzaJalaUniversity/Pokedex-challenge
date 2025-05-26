@@ -1,0 +1,18 @@
+.pokemon-card {
+  border-radius: 8px;
+  background-color: #82be82;
+  padding: 16px;
+  width: 225px;
+  height: 125px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin: 2rem;
+}
+
+.categories-tags {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+}

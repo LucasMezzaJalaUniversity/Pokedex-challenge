@@ -1,0 +1,16 @@
+.category-icon {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin-right: 4px;
+}
+
+.pokemon-img {
+  position: absolute;
+  right: -125px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+}
