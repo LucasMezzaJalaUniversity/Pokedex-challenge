@@ -1,16 +1,17 @@
 import { Image } from "../atoms/Image"
-import { Text } from "../atoms/Text"
 import { CategoryTag } from "../molecules/CategoryTag"
+import { PokemonIdentity } from "../molecules/PokemonIdentity"
 
-export const PokemonCard = ({src, categories, number, name}) => {
+export const PokemonCard = ({pokemon}) => {
+  const {src, categories, number, name} = pokemon;
+
   return (
     <div>
       <div>
-        <Text classname={''} >#{number}</Text>
-        <Text classname={''} >{name}</Text>
+        <PokemonIdentity number={number} name={name} ></PokemonIdentity>
         <ul>
-          {categories.map(row => (
-            <CategoryTag src={row.src} category={row.category} ></CategoryTag>
+          {categories.map((row,idx) => (
+            <CategoryTag src={row.src} category={row.category} id={idx}></CategoryTag>
           ))}
         </ul>
       </div>
