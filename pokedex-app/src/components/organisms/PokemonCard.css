@@ -2,10 +2,8 @@
   border-radius: 8px;
   background-color: #82be82;
   padding: 16px;
-  width: 225px;
-  height: 125px;
+  width: max-content;
   display: flex;
-  position: relative;
   align-items: center;
   margin: 2rem;
 }
