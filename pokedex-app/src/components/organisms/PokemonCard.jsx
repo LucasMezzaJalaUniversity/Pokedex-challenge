@@ -1,18 +1,18 @@
 import { Image } from "../atoms/Image"
-import { CategoryTag } from "../molecules/CategoryTag"
+import { TypeTag } from "../molecules/TypeTag"
 import { PokemonIdentity } from "../molecules/PokemonIdentity"
 import './PokemonCard.css'
 
 export const PokemonCard = ({pokemon}) => {
-  const {image, categories, number, name} = pokemon;
+  const {image, types, number, name} = pokemon;
 
   return (
     <div className="pokemon-card">
       <div>
         <PokemonIdentity number={number} name={name} ></PokemonIdentity>
         <ul className="categories-tags">
-          {categories.map((row,idx) => (
-            <CategoryTag src={row.image} category={row.category} id={idx}></CategoryTag>
+          {types.map((row,idx) => (
+            <TypeTag src={row.image} category={row.category} id={idx}></TypeTag>
           ))}
         </ul>
       </div>

@@ -1,8 +1,8 @@
 import { Image } from "../atoms/Image"
 import { Text } from "../atoms/Text"
-import './CategoryTag.css'
+import './TypeTag.css'
 
-export const CategoryTag = ({id, src, category}) => {
+export const TypeTag = ({id, src, category}) => {
   const categoriesColors = {
     Grass: 'green',
     Poison: 'purple',
@@ -10,7 +10,7 @@ export const CategoryTag = ({id, src, category}) => {
 
   return (
     <li key={id} className={`category-tag category-${categoriesColors[category]}`}>
-      <Image src={src} alt={category} classname={'category-icon'} ></Image>
+      <Image src={`/icons/${src}`} alt={category} classname={'category-icon'} ></Image>
       <Text classname={'pokemon-category'} >{category}</Text>
     </li>
   )

@@ -4,13 +4,13 @@ import { PokemonCard } from './components/organisms/PokemonCard'
 function App() {
   const pokemon = {
     image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', 
-    categories: [
+    types: [
       {
-        image: "",
+        image: "grass.svg",
         category: 'Grass'
       },
       {
-        image: "",
+        image: "poison.svg",
         category: 'Poison'
       }
     ], 
