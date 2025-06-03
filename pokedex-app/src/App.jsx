@@ -19,9 +19,19 @@ function App() {
   }
 
   return (
-    <>
-      <PokemonCard pokemon={pokemon} />
-    </>
+    <section>
+      <div className='pokemons'>
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+        <PokemonCard pokemon={pokemon} />
+      </div>
+    </section>
   )
 }
 
