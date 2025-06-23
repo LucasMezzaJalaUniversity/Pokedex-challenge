@@ -1,5 +1,7 @@
 import './App.css'
+import { Navbar } from './components/organisms/Navbar'
 import { PokemonCard } from './components/organisms/PokemonCard'
+import { SearcherSection } from './components/organisms/SearcherSection'
 
 function App() {
   const pokemon = {
@@ -20,6 +22,8 @@ function App() {
 
   return (
     <section>
+      <Navbar></Navbar>
+      <SearcherSection></SearcherSection>
       <div className='pokemons'>
         <PokemonCard pokemon={pokemon} />
         <PokemonCard pokemon={pokemon} />
