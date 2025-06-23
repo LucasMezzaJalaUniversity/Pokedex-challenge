@@ -1,4 +1,17 @@
+.body-section {
+  display: grid;
+  grid-template-areas: 'navbar'
+                       'searcher'
+                       'cards';
+}
+nav {
+  grid-area: navbar;
+}
+header {
+  grid-area: searcher;
+}
 .pokemons {
+  grid-area: cards;
   display: flex;
   flex-wrap: wrap;
 }

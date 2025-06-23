@@ -8,3 +8,41 @@
   position: absolute;
   right: -40px; 
 }
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+}
+
+.search-icon {
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+}
+
+.patter-searcher {
+  position: absolute; 
+  height: 70px
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.pattern-card {
+  position: absolute;
+  left: .75em;
+  top: .5em;
+}
+
+.pokeball-img {
+  position: absolute;
+  height: 100%;
+  right: 0;
+}

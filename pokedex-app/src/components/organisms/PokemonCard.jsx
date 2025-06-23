@@ -8,11 +8,13 @@ export const PokemonCard = ({pokemon}) => {
 
   return (
     <div className="pokemon-card">
+      <Image src={`/icons/Pattern.svg`} alt={'Pattern'} classname={'pattern-card'} ></Image>     
       <div>
         <PokemonIdentity number={number} name={name} ></PokemonIdentity>
         <TypeTags types={types}></TypeTags>
       </div>
-      <Image src={image} alt={name} classname={'pokemon-img'} ></Image>     
+      <Image src={image} alt={name} classname={'pokemon-img'} ></Image>
+      <Image src={`/icons/Pokeball.svg`} alt={'Pokeball'} classname={'pokeball-img'} ></Image>
     </div>
   )
 }

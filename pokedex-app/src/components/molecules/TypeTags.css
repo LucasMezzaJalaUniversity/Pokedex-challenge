@@ -1,13 +1,14 @@
 .category-tag {
   display: flex;
   align-items: center;
-  padding: 4px
+  padding: 4px;
+  border-radius: 3px;
 }
 
 .category-green {
-  background-color: green;
+  background-color: #62B957;
 }
 
 .category-purple {
-  background-color: purple;
+  background-color: #A552CC;
 }

@@ -21,9 +21,13 @@ function App() {
   }
 
   return (
-    <section>
-      <Navbar></Navbar>
-      <SearcherSection></SearcherSection>
+    <section className='body-section'>
+      <nav>
+        <Navbar></Navbar>
+      </nav>
+      <header>
+        <SearcherSection></SearcherSection>
+      </header>
       <div className='pokemons'>
         <PokemonCard pokemon={pokemon} />
         <PokemonCard pokemon={pokemon} />
