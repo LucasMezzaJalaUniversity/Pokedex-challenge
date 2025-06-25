@@ -5,8 +5,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin: 2rem;
-  flex: 1 1 200px;
+  margin: 1rem;
+  flex: 1 1 225px;
 }
 
 .categories-tags {

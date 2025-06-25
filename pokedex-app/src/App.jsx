@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import { Navbar } from './components/organisms/Navbar'
 import { PokemonCard } from './components/organisms/PokemonCard'
@@ -5,7 +6,7 @@ import { SearcherSection } from './components/organisms/SearcherSection'
 
 function App() {
   const pokemon = {
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', 
+    image: '/images/Bullbasaur.png', 
     types: [
       {
         image: "grass.svg",
@@ -20,10 +21,15 @@ function App() {
     name: 'Bulbasaur'
   }
 
+  const [page, setPage] = useState('home')
+  const handlePage = (currentPage) => {
+    setPage(currentPage)
+  }
+
   return (
     <section className='body-section'>
       <nav>
-        <Navbar></Navbar>
+        <Navbar handlePage={handlePage} page={page}></Navbar>
       </nav>
       <header>
         <SearcherSection></SearcherSection>

@@ -6,7 +6,9 @@
 
 .pokemon-img {
   position: absolute;
-  right: -40px; 
+  right: -20px;
+  width: 140px;
+  z-index: 1;
 }
 
 .logo-icon {

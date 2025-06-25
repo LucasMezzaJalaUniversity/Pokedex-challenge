@@ -22,3 +22,7 @@
 .navlink {
   font-size: 14px;
 }
+
+.navlink.current-page {
+  font-weight: 600;
+}
