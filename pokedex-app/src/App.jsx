@@ -1,26 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import { Navbar } from './components/organisms/Navbar'
-import { PokemonCard } from './components/organisms/PokemonCard'
-import { SearcherSection } from './components/organisms/SearcherSection'
+import { Home } from './components/pages/Home'
+import { Types } from './components/pages/Types'
+import { Generations } from './components/pages/Generations'
 
 function App() {
-  const pokemon = {
-    image: '/images/Bullbasaur.png', 
-    types: [
-      {
-        image: "grass.svg",
-        category: 'Grass'
-      },
-      {
-        image: "poison.svg",
-        category: 'Poison'
-      }
-    ], 
-    number: '001', 
-    name: 'Bulbasaur'
-  }
-
   const [page, setPage] = useState('home')
   const handlePage = (currentPage) => {
     setPage(currentPage)
@@ -31,20 +16,9 @@ function App() {
       <nav>
         <Navbar handlePage={handlePage} page={page}></Navbar>
       </nav>
-      <header>
-        <SearcherSection></SearcherSection>
-      </header>
-      <div className='pokemons'>
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-      </div>
+      {page === 'home' && <Home />}
+      {page === 'types' && <Types />}
+      {page === 'generations' && <Generations />}
     </section>
   )
 }
