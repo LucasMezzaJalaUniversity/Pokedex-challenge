@@ -1,0 +1,15 @@
+.home {
+  display: grid;
+  grid-template-areas: 'searcher'
+                       'pokemon-list';
+}
+header {
+  grid-area: searcher;
+}
+.pokemons {
+  grid-area: pokemon-list;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}

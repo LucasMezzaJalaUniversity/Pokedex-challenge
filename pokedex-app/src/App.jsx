@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import { Navbar } from './components/organisms/Navbar'
-import { Home } from './components/pages/Home'
-import { Types } from './components/pages/Types'
-import { Generations } from './components/pages/Generations'
+import { Home } from './components/templates/Home'
+import { Types } from './components/templates/Types'
+import { Generations } from './components/templates/Generations'
 
 function App() {
   const [page, setPage] = useState('home')
@@ -12,14 +12,16 @@ function App() {
   }
 
   return (
-    <section className='body-section'>
+    <div className='body-section'>
       <nav>
         <Navbar handlePage={handlePage} page={page}></Navbar>
       </nav>
-      {page === 'home' && <Home />}
-      {page === 'types' && <Types />}
-      {page === 'generations' && <Generations />}
-    </section>
+      <section>
+        {page === 'home' && <Home />}
+        {page === 'types' && <Types />}
+        {page === 'generations' && <Generations />}
+      </section>
+    </div>
   )
 }
 

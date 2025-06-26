@@ -1,5 +1,6 @@
 import { SearcherSection } from '../organisms/SearcherSection'
 import { PokemonCard } from '../organisms/PokemonCard'
+import './Home.css'
 
 const pokemon = {
   image: '/images/Bullbasaur.png', 
@@ -19,7 +20,7 @@ const pokemon = {
 
 export const Home = () => {
   return (
-    <>
+    <article className='home'>
       <header>
         <SearcherSection></SearcherSection>
       </header>
@@ -34,6 +35,6 @@ export const Home = () => {
         <PokemonCard pokemon={pokemon} />
         <PokemonCard pokemon={pokemon} />
       </div>
-    </>
+    </article>
   )
 }
