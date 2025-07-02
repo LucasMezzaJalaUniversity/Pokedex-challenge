@@ -19,6 +19,11 @@
   margin-top: 1em;
 }
 
+.language {
+  color: #fff;
+  font-weight: 700;
+}
+
 .navlink {
   font-size: 14px;
 }

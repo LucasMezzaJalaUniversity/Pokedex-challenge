@@ -2,14 +2,26 @@
   display: grid;
   grid-template-areas: 'languages'
                        'game';
+  height: calc(100vh - 48px);
 }
 .game .header {
   grid-area: languages;
 }
 .gameboard {
   grid-area: game;
+  height: 100%;
+}
+.gameboard div {
   display: flex;
-  flex-wrap: wrap;
-  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: auto;
+}
+.gameboard ul {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  list-style: none;
+  margin-top: 2em;
 }

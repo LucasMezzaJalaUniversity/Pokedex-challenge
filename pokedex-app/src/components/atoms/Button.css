@@ -4,3 +4,21 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.game-btn {
+  padding: 1em 3em;
+  border-radius: 10px;
+  background-color: #EA5D60;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
