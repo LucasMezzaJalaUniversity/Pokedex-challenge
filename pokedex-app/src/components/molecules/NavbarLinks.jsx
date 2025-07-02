@@ -1,3 +1,6 @@
+import { Button } from '../atoms/Button'
+import { Text } from '../atoms/Text'
+
 export const NavbarLinks = ({page, handlePage}) => {
   return (
     <nav style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1em'}}>

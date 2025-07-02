@@ -1,8 +1,10 @@
+import { Languages } from "../molecules/Languages"
+
 export const Game = () => {
   return (
     <section className='game'>
       <div className='header'>
-        <SearcherSection></SearcherSection>
+        <Languages></Languages>
       </div>
       <div className="gameboard"></div>
     </section>

@@ -4,6 +4,7 @@ import { Navbar } from './components/organisms/Navbar'
 import { Home } from './components/templates/Home'
 import { Types } from './components/templates/Types'
 import { Generations } from './components/templates/Generations'
+import { Game } from './components/templates/Game'
 
 function App() {
   const [page, setPage] = useState('game')
