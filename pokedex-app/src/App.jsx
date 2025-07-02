@@ -6,7 +6,7 @@ import { Types } from './components/templates/Types'
 import { Generations } from './components/templates/Generations'
 
 function App() {
-  const [page, setPage] = useState('home')
+  const [page, setPage] = useState('game')
   const handlePage = (currentPage) => {
     setPage(currentPage)
   }
@@ -15,6 +15,8 @@ function App() {
     <div className='body-section'>
       <Navbar handlePage={handlePage} page={page}></Navbar>
       <>
+        {page === 'game' && <Game />}
+        {page === 'langs' && <section>Langs</section>}
         {page === 'home' && <Home />}
         {page === 'types' && <Types />}
         {page === 'generations' && <Generations />}

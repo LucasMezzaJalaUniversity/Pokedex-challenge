@@ -1,0 +1,15 @@
+.game {
+  display: grid;
+  grid-template-areas: 'languages'
+                       'game';
+}
+.game .header {
+  grid-area: languages;
+}
+.gameboard {
+  grid-area: game;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
