@@ -20,10 +20,10 @@ const pokemon = {
 
 export const Home = () => {
   return (
-    <article className='home'>
-      <header>
+    <section className='home'>
+      <div className='header'>
         <SearcherSection></SearcherSection>
-      </header>
+      </div>
       <div className='pokemons'>
         <PokemonCard pokemon={pokemon} />
         <PokemonCard pokemon={pokemon} />
@@ -35,6 +35,6 @@ export const Home = () => {
         <PokemonCard pokemon={pokemon} />
         <PokemonCard pokemon={pokemon} />
       </div>
-    </article>
+    </section>
   )
 }

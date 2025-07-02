@@ -1,3 +1,3 @@
 export const Generations = () => {
-  return <></>
+  return <section></section>
 }

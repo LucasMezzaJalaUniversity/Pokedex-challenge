@@ -13,14 +13,12 @@ function App() {
 
   return (
     <div className='body-section'>
-      <nav>
-        <Navbar handlePage={handlePage} page={page}></Navbar>
-      </nav>
-      <section>
+      <Navbar handlePage={handlePage} page={page}></Navbar>
+      <>
         {page === 'home' && <Home />}
         {page === 'types' && <Types />}
         {page === 'generations' && <Generations />}
-      </section>
+      </>
     </div>
   )
 }

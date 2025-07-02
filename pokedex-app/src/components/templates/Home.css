@@ -3,7 +3,7 @@
   grid-template-areas: 'searcher'
                        'pokemon-list';
 }
-header {
+.home .header {
   grid-area: searcher;
 }
 .pokemons {

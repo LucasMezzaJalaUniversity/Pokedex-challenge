@@ -1,3 +1,3 @@
 export const Types = () => {
-  return <></>
+  return <section></section>
 }
