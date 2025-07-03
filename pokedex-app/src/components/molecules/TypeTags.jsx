@@ -4,16 +4,25 @@ import './TypeTags.css'
 
 export const TypeTags = ({types}) => {
   const categoriesColors = {
-    Grass: 'green',
-    Poison: 'purple',
+    grass: 'green',
+    poison: 'purple',
+    fire: 'orange',
+    bug: 'dark-green',
+    water: 'blue',
+    normal: 'gray',
+    flying: 'light-blue',
+    electric: 'yellow',
+    ground: 'dark-orange',
+    rock: 'dark-gray',
+    fairy: 'pink',
   }
 
   return (
     <ul className="categories-tags">
       {types.map((row,idx) => (
-        <li key={idx} className={`category-tag category-${categoriesColors[row.category]}`}>
-          <Image src={`/icons/${row.image}`} alt={row.category} classname={'category-icon'} ></Image>
-          <Text classname={'pokemon-category'} >{row.category}</Text>
+        <li key={idx} className={`category-tag category-${categoriesColors[row.type.name]}`}>
+          <Image src={`/icons/${row.type.name}.svg`} alt={row.type.name} classname={'category-icon'} ></Image>
+          <Text classname={'pokemon-category'} >{row.type.name}</Text>
         </li>
       ))}
     </ul>

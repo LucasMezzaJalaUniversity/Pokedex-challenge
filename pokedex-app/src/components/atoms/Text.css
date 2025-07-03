@@ -11,6 +11,7 @@
 .pokemon-category {
   color: #fff;
   font-size: 10px;
+  text-transform: capitalize;
 }
 
 .searcher {

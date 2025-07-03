@@ -1,39 +1,35 @@
 import { SearcherSection } from '../organisms/SearcherSection'
 import { PokemonCard } from '../organisms/PokemonCard'
 import './Home.css'
-
-const pokemon = {
-  image: '/images/Bullbasaur.png', 
-  types: [
-    {
-      image: "grass.svg",
-      category: 'Grass'
-    },
-    {
-      image: "poison.svg",
-      category: 'Poison'
-    }
-  ], 
-  number: '001', 
-  name: 'Bulbasaur'
-}
+import { useEffect, useState } from 'react'
+import { getRequestFromAPI } from '../../api/api'
 
 export const Home = () => {
+  const [pokemons, setPokemons] = useState([])
+
+  useEffect(() => {
+    const loadPokemons = async () => {
+      const data = await getRequestFromAPI('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+      const pokemonsUrl = data.results.map(row => getRequestFromAPI(row.url))
+      const pokemonsDetail = await Promise.all(pokemonsUrl)
+
+      console.log(pokemonsDetail)
+
+      setPokemons(pokemonsDetail)
+    }
+
+    loadPokemons();
+  }, [])
+
   return (
     <section className='home'>
       <div className='header'>
         <SearcherSection></SearcherSection>
       </div>
       <div className='pokemons'>
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
-        <PokemonCard pokemon={pokemon} />
+        {pokemons.map((row, idx) => (
+          <PokemonCard pokemon={row} key={idx}/>
+        ))}
       </div>
     </section>
   )
