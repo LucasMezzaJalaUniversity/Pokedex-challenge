@@ -6,10 +6,12 @@
 .home .header {
   grid-area: searcher;
 }
-.pokemons {
+.pokemons-board {
   grid-area: pokemon-list;
-  display: flex;
-  flex-wrap: wrap;
   width: 90%;
   margin: auto;
+}
+.pokemons {
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -15,42 +15,42 @@
   margin-top: 16px;
 }
 
-.category-green {
+.card-color-green {
   background-color: #8BBE8A;
 }
 
-.category-purple {
+.card-color-purple {
   background-color: #9F6E97;
 }
 
-.category-orange {
+.card-color-orange {
   background-color: #FFA756;
 }
 
-.category-blue {
+.card-color-blue {
   background-color: #58ABF6;
 }
 
-.category-dark-green {
+.card-color-dark-green {
   background-color: #8BD674;
 }
 
-.category-gray {
+.card-color-gray {
   background-color: #B5B9C4;
 }
 
-.category-yellow {
+.card-color-yellow {
   background-color: #F2CB55;
 }
 
-.category-dark-orange {
+.card-color-dark-orange {
   background-color: #F78551;
 }
 
-.category-dark-gray {
+.card-color-dark-gray {
   background-color: #BAAB82;
 }
 
-.category-pink {
+.card-color-pink {
   background-color: #EBA8C3;
 }
