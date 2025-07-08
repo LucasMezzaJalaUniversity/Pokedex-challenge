@@ -20,7 +20,7 @@
 }
 
 .category-purple {
-  background-color: #A552CC;
+  background-color: #9F6E97;
 }
 
 .category-orange {
@@ -28,27 +28,23 @@
 }
 
 .category-blue {
-  background-color: #4A90DA;
+  background-color: #58ABF6;
 }
 
 .category-dark-green {
-  background-color: #8CB230;
+  background-color: #8BD674;
 }
 
 .category-gray {
-  background-color: #9DA0AA;
-}
-
-.category-light-blue {
-  background-color: #748FC9;
+  background-color: #B5B9C4;
 }
 
 .category-yellow {
-  background-color: #EED535;
+  background-color: #F2CB55;
 }
 
 .category-dark-orange {
-  background-color: #DD7748;
+  background-color: #F78551;
 }
 
 .category-dark-gray {
@@ -56,5 +52,5 @@
 }
 
 .category-pink {
-  background-color: #ED6EC7;
+  background-color: #EBA8C3;
 }

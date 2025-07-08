@@ -13,7 +13,6 @@ export const PokemonCard = ({pokemon}) => {
     bug: 'dark-green',
     water: 'blue',
     normal: 'gray',
-    flying: 'light-blue',
     electric: 'yellow',
     ground: 'dark-orange',
     rock: 'dark-gray',
