@@ -1,22 +1,23 @@
 import { useCallback, useContext } from "react";
-// import { usePokemonsContext } from "../../contexts/PokemonContext"
 import { Image } from "../atoms/Image"
 import { Input } from "../atoms/Input"
 import { debounce } from "../../utils/debounce";
 import { PokemonContext } from "../../contexts/PokemonContext";
 
 export const Searcher = () => {
-  const {setPokemons, listRef} = useContext(PokemonContext);
+  const {setPokemons, listRef, setLoading} = useContext(PokemonContext);
 
   const debounceSearch = useCallback(
     debounce((value) => {
       const filtered = listRef.current.filter(row => row.name.includes(value));
       setPokemons(filtered)
-    }, 2000),
+    }, 1000),
   []);  
 
   const handleChange = (e) => {
+    setLoading(true)
     debounceSearch(e.target.value);
+    setLoading(false)
   };
 
   return (

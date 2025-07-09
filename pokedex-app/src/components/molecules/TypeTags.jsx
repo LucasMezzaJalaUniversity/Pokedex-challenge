@@ -15,6 +15,13 @@ export const TypeTags = ({types}) => {
     ground: 'dark-orange',
     rock: 'dark-gray',
     fairy: 'pink',
+    dragon: 'blue',
+    ghost: 'gray',
+    dark: 'light-blue',
+    ice: 'yellow',
+    steel: 'dark-orange',
+    psychic: 'dark-gray',
+    fighting: 'pink',
   }
 
   return (

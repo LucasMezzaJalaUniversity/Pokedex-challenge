@@ -1,0 +1,30 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em;
+}
+.loading-container img {
+  width: 30px;
+  height: 30px;
+  animation: 
+    opacity 1.6s infinite linear,
+    rotate 1.6s infinite linear;
+}
+.loading-container p {
+  font-size: .8em;
+  font-weight: 600;
+  animation: opacity 1.6s infinite linear;
+}
+
+@keyframes opacity { 
+  0%    {opacity: 1;}
+  50%  {opacity: .3;}
+  100%  {opacity: 1;}
+}
+
+@keyframes rotate { 
+  0%    {transform: rotate(0deg)}
+  100%  {transform: rotate(360deg)}
+}

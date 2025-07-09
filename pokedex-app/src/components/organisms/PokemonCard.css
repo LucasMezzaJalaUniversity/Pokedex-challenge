@@ -47,10 +47,39 @@
   background-color: #F78551;
 }
 
-.card-color-dark-gray {
-  background-color: #BAAB82;
+.card-color-brown-gray {
+  background-color: #D4C294;
 }
 
 .card-color-pink {
   background-color: #EBA8C3;
 }
+
+.card-color-dark-blue {
+  background-color: #4C91B2;
+}
+
+.card-color-violet {
+  background-color: #8571BE;
+}
+
+.card-color-dark-pink {
+  background-color: #EB4971;
+}
+
+.card-color-light-blue {
+  background-color: #91D8DF;
+}
+
+.card-color-orange-pink {
+  background-color: #FF6568;
+}
+
+.card-color-gray-blue {
+  background-color: #7383B9;
+}
+
+.card-color-dark-gray {
+  background-color: #6F6E78;
+}
+
