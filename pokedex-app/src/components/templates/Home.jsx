@@ -23,7 +23,6 @@ export const Home = () => {
     const pokemonsDetail = await Promise.all(pokemonsUrl)
 
     offsetRef.current += limit;
-    console.log(pokemonsDetail)
 
     setPokemons(prev => [...prev, ...pokemonsDetail])
     listRef.current = [...listRef.current, ...pokemonsDetail];
@@ -36,8 +35,8 @@ export const Home = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight
-      console.log(bottom, window.innerHeight + window.scrollY, document.body.offsetHeight)
+      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+
       if(bottom) loadPokemons();
     }
 

@@ -52,3 +52,7 @@
 .flags {
   height: 45px;
 }
+
+.hidden-pokemon {
+  filter: grayscale(100%);
+}
