@@ -1,31 +1,71 @@
-import { Button } from '../atoms/Button'
 import { Text } from '../atoms/Text'
+import { useLocation } from 'react-router';
+import { NavLink } from 'react-router';
 
-export const NavbarLinks = ({page, handlePage}) => {
+export const NavbarLinks = () => {
+  const location = useLocation();
+
+  console.log(location.pathname);
   return (
     <nav style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1em'}}>
-      {page === 'game' || page === 'langs' ?
+      {location === '/game' || location === '/langs' ?
         <>
-          <Button onClick={e => handlePage('game')} classname={'navlink'}>
-            <Text classname={`${page === 'game' ? 'current-page' : ''} navlink`}>Game</Text>
-          </Button>
-          <Button onClick={e => handlePage('langs')} classname={'navlink'}>
-            <Text classname={`${page === 'langs' ? 'current-page' : ''} navlink`}>Langs</Text>
-          </Button>
-          <Button onClick={e => handlePage('home')} classname={'navlink'}>
+          <NavLink
+            to="/game"
+            style={{textDecoration: 'none', color: 'inherit'}}
+            className={({ isActive }) =>
+              isActive ? "navlink" : ""
+            }
+          >
+            <Text>Game</Text>
+          </NavLink>
+          <NavLink
+            to="/langs"
+            style={{textDecoration: 'none', color: 'inherit'}}
+            className={({ isActive }) =>
+              isActive ? "navlink" : ""
+            }
+          > 
+            <Text>Langs</Text>
+          </NavLink>
+          <NavLink
+            to="/"
+            style={{textDecoration: 'none', color: 'inherit'}}
+            className={({ isActive }) =>
+              isActive ? "navlink" : ""
+            }
+          >
             <Text classname="navlink">Pokedex</Text>
-          </Button>
+          </NavLink>
         </>
       : <>
-        <Button onClick={e => handlePage('home')} classname={'navlink'}>
-          <Text classname={`${page === 'home' ? 'current-page' : ''} navlink`}>Home</Text>
-        </Button>
-        <Button onClick={e => handlePage('types')} classname={'navlink'}>
-          <Text classname={`${page === 'types' ? 'current-page' : ''} navlink`}>Types</Text>
-        </Button>
-        <Button onClick={e => handlePage('generations')} classname={'navlink'}>
-          <Text classname={`${page === 'generations' ? 'current-page' : ''} navlink`}>Generations</Text>
-        </Button>
+        <NavLink
+          to="/"
+          style={{textDecoration: 'none', color: 'inherit'}}
+          className={({ isActive }) =>
+            isActive ? "navlink" : ""
+          }
+        >
+          <Text>Home</Text>
+        </NavLink>
+        <NavLink
+          to="/types"
+          style={{textDecoration: 'none', color: 'inherit'}}
+          className={({ isActive }) =>
+            isActive ? "navlink" : ""
+          }
+        >
+          <Text>Types</Text>
+        </NavLink>
+        <NavLink
+          to="/generations"
+          style={{textDecoration: 'none', color: 'inherit'}}
+          className={({ isActive }) =>
+            isActive ? "navlink" : ""
+          }
+        >
+          <Text>Generations</Text>
+        </NavLink>
       </>}
     </nav>
   )

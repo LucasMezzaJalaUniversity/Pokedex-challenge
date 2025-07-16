@@ -1,15 +1,15 @@
-import { Button } from "../atoms/Button"
+import { NavLink } from "react-router"
 import { Image } from "../atoms/Image"
 import { Text } from "../atoms/Text"
 
-export const PokemonLogo = ({handlePage}) => {
+export const PokemonLogo = () => {
   return (
-    <Button 
-      onClick={e => handlePage('game')}
-      classname={'logo'}
+    <NavLink  
+      to="/game"
+      style={{textDecoration: 'none', color: 'inherit', display: "flex", alignItems: "center"}}
     >
       <Image src={`/icons/Logo.svg`} alt={'logo'} classname={'logo-icon'}></Image>
       <Text>Pokemon</Text>
-    </Button>
+    </NavLink>
   )
 }
