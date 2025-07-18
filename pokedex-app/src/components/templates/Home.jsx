@@ -6,11 +6,13 @@ import { getRequestFromAPI } from '../../api/api'
 import { PokemonContext } from '../../contexts/PokemonContext'
 import { Loading } from '../molecules/Loading'
 import { EmptyState } from '../molecules/EmptyState'
+import { useLoaderData } from 'react-router'
 
 export const Home = () => {
+  const pokemonsDetail = useLoaderData();
   const [pokemons, setPokemons] = useState([])
   const [loading, setLoading] = useState(false)
-  const offsetRef = useRef(0);
+  const offsetRef = useRef(20);
   const listRef = useRef([]);
 
   const loadPokemons = async () => {
@@ -32,6 +34,13 @@ export const Home = () => {
   useEffect(() => {
     loadPokemons();
   }, [])
+
+  useEffect(() => {
+    if (pokemonsDetail) {
+      setPokemons(pokemonsDetail);
+      listRef.current = pokemonsDetail;
+    }
+  }, [pokemonsDetail]);
 
   useEffect(() => {
     const handleScroll = () => {

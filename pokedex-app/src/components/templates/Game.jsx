@@ -37,12 +37,12 @@ export const Game = () => {
       </div>
       <div className="gameboard">
         <div>
-          <Image src={selectedPokemon.sprites.front_default} classname={"hidden-pokemon"}></Image>
-          <ul>
+          {/* <Image src={selectedPokemon.sprites.front_default} classname={"hidden-pokemon"}></Image> */}
+          {/* <ul>
             {gameList.current.map((row, idx) => {
               <li key={idx}><Button classname={'game-btn'} onClick={() => handleAnswer(row.name)}>{row.name}</Button></li>
             })}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </section>
