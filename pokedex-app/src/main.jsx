@@ -7,6 +7,7 @@ import { Generations } from './components/pages/Generations';
 import './index.css'
 import App from './App.jsx'
 import { Langs } from "./components/pages/Langs.jsx";
+import { PokemonDetail } from "./components/pages/Langs.jsx";
 import { PokemonProvider } from './contexts/PokemonProvider.jsx';  
 
 createRoot(document.getElementById('root')).render(
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />} />
+          <Route path="/pokemon/:id" element={<PokemonDetail />} />
           <Route path="game" element={<Game />} />
           <Route path="langs" element={<Langs />} />
           <Route path="types" element={<Types />} />
