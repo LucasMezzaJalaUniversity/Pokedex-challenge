@@ -53,6 +53,16 @@
   height: 45px;
 }
 
-.hidden-pokemon {
-  filter: grayscale(100%);
+.pokemon-hidden {
+  filter: brightness(0) grayscale(1);
+  transition: filter 1s;
+}
+
+.pokemon-revealed {
+  filter: none;
+  transition: filter 1s;
+}
+
+.hidden {
+  width: 15em;
 }
