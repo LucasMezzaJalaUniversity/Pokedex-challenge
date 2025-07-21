@@ -12,6 +12,7 @@ export const Game = () => {
   const [selectedPokemon, setSelectedPokemon] = useState(0);
 
   useEffect(() => {
+    console.log(listRef)
     if (!listRef?.current || listRef.current.length < 4) return;
 
     let random;

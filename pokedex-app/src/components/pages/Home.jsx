@@ -1,17 +1,15 @@
 import { SearcherSection } from '../organisms/SearcherSection'
 import { PokemonCard } from '../organisms/PokemonCard'
 import './Home.css'
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { getRequestFromAPI } from '../../api/api'
 import { PokemonContext } from '../../contexts/PokemonContext'
 import { Loading } from '../molecules/Loading'
 import { EmptyState } from '../molecules/EmptyState'
 
 export const Home = () => {
-  const [pokemons, setPokemons] = useState([])
-  const [loading, setLoading] = useState(false)
+  const { pokemons, setPokemons, listRef, loading, setLoading } = useContext(PokemonContext);
   const offsetRef = useRef(0);
-  const listRef = useRef([]);
 
   const loadPokemons = async () => {
     if (loading) return;
@@ -36,7 +34,6 @@ export const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
-
       if(bottom) loadPokemons();
     }
 
@@ -45,31 +42,29 @@ export const Home = () => {
   }, [])
 
   return (
-    <PokemonContext.Provider value={{pokemons, setPokemons, listRef, loading, setLoading}}>
-      <section className='home'>
-        <div className='header'>
-          <SearcherSection></SearcherSection>
-        </div>
-        <div className='pokemons-board'>
-          {
-            pokemons.length == 0 ? 
-              loading ? 
-                <Loading />
-              :
-                <EmptyState text={'Pokemons not found'} />
-            : (
-              <>
-                <div className='pokemons'>
-                  {pokemons.map((row, idx) => (
-                    <PokemonCard pokemon={row} key={idx}/>
-                  ))}
-                </div>
-                <Loading />
-              </>
-            )
-          }
-        </div>
-      </section>
-    </PokemonContext.Provider>
+    <section className='home'>
+      <div className='header'>
+        <SearcherSection></SearcherSection>
+      </div>
+      <div className='pokemons-board'>
+        {
+          pokemons.length == 0 ? 
+            loading ? 
+              <Loading />
+            :
+              <EmptyState text={'Pokemons not found'} />
+          : (
+            <>
+              <div className='pokemons'>
+                {pokemons.map((row, idx) => (
+                  <PokemonCard pokemon={row} key={idx}/>
+                ))}
+              </div>
+              {loading && <Loading />}
+            </>
+          )
+        }
+      </div>
+    </section>
   )
 }
