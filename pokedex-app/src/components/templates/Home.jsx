@@ -32,10 +32,6 @@ export const Home = () => {
   }
 
   useEffect(() => {
-    loadPokemons();
-  }, [])
-
-  useEffect(() => {
     if (pokemonsDetail) {
       setPokemons(pokemonsDetail);
       listRef.current = pokemonsDetail;
@@ -44,9 +40,9 @@ export const Home = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
 
-      if(bottom) loadPokemons();
+      if(bottom && !loading) loadPokemons();
     }
 
     window.addEventListener('scroll', handleScroll)
