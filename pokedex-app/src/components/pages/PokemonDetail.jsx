@@ -6,7 +6,7 @@ import { TypeTags } from "../molecules/TypeTags";
 import { Button } from "../atoms/Button";
 import { Image } from "../atoms/Image";
 
-export const PokemonDetail = () => {
+const PokemonDetail = () => {
   const [pokemon, setPokemon] = useState({});
   const { id } = useParams();
   const { listRef } = useContext(PokemonContext);
@@ -78,3 +78,5 @@ export const PokemonDetail = () => {
     </section>
   );
 };
+
+export default PokemonDetail;

@@ -7,7 +7,7 @@ import { PokemonContext } from '../../contexts/PokemonContext'
 import { Loading } from '../molecules/Loading'
 import { EmptyState } from '../molecules/EmptyState'
 
-export const Home = () => {
+const Home = () => {
   const { pokemons, setPokemons, listRef, loading, setLoading } = useContext(PokemonContext);
   const offsetRef = useRef(0);
 
@@ -68,3 +68,5 @@ export const Home = () => {
     </section>
   )
 }
+
+export default Home;

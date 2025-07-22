@@ -6,7 +6,7 @@ import { Languages } from "../molecules/Languages"
 import './Game.css'
 import { EmptyState } from "../molecules/EmptyState"
 
-export const Game = () => {
+const Game = () => {
   const { listRef } = useContext(PokemonContext);
   const gameList = useRef([]);
   const [score, setScore] = useState(0);
@@ -99,3 +99,5 @@ export const Game = () => {
     </section>
   );
 };
+
+export default Game;
