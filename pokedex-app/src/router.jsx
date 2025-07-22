@@ -1,8 +1,4 @@
 import { createBrowserRouter } from "react-router";
-import { Home } from "./components/templates/Home";
-import { Game } from "./components/templates/Game";
-import { Types } from "./components/templates/Types";
-import { Generations } from "./components/templates/Generations";
 import App from "./App";
 import { Error } from "./components/pages/Error";
 import { pokemonLoader } from "./loader/loader";
@@ -14,11 +10,37 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     loader: pokemonLoader,
     children: [
-      { path: "/", element: <Home />,  },
-      { path: "game", element: <Game />,  },
-      { path: "langs", element: <section>Langs</section> },
-      { path: "types", element: <Types /> },
-      { path: "generations", element: <Generations /> },
+      {
+        path: "/",
+        loader: pokemonLoader,
+        lazy: async () => ({
+          Component: (await import("./components/templates/Home")).Home,
+        }),
+      },
+      {
+        path: "game",
+        lazy: async () => ({
+          Component: (await import("./components/templates/Game")).Game,
+        }),
+      },
+      {
+        path: "langs",
+        lazy: async () => ({
+          Component: () => <section>langs</section>,
+        }),
+      },
+      {
+        path: "types",
+        lazy: async () => ({
+          Component: (await import("./components/templates/Types")).Types,
+        }),
+      },
+      {
+        path: "generations",
+        lazy: async () => ({
+          Component: (await import("./components/templates/Generations")).Generations,
+        }),
+      },
     ],
   },
 ]);
