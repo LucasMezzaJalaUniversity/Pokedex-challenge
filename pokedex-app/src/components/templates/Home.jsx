@@ -2,11 +2,11 @@ import { SearcherSection } from '../organisms/SearcherSection'
 import { PokemonCard } from '../organisms/PokemonCard'
 import './Home.css'
 import { useEffect, useRef, useState } from 'react'
-import { getRequestFromAPI } from '../../api/api'
 import { PokemonContext } from '../../contexts/PokemonContext'
 import { Loading } from '../molecules/Loading'
 import { EmptyState } from '../molecules/EmptyState'
 import { useLoaderData } from 'react-router'
+import { pokemonLoader } from '../../loader/loader'
 
 export const Home = () => {
   const pokemonsDetail = useLoaderData();
@@ -19,10 +19,14 @@ export const Home = () => {
     if (loading) return;
 
     setLoading(true)
+
     const limit = offsetRef.current === 0 ? 20 : 25; 
-    const data = await getRequestFromAPI(`https://pokeapi.co/api/v2/pokemon?offset=${offsetRef.current}&limit=${limit}`);
-    const pokemonsUrl = data.results.map(row => getRequestFromAPI(row.url))
-    const pokemonsDetail = await Promise.all(pokemonsUrl)
+    const pokemonsDetail = await pokemonLoader(limit, offsetRef.current);
+
+    if (!pokemonsDetail) {
+      setLoading(false);  
+      return;
+    }
 
     offsetRef.current += limit;
 

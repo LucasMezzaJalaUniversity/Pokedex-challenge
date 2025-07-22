@@ -5,7 +5,6 @@ import { NavLink } from 'react-router';
 export const NavbarLinks = () => {
   const location = useLocation();
 
-  console.log(location.pathname);
   return (
     <nav style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1em'}}>
       {location === '/game' || location === '/langs' ?

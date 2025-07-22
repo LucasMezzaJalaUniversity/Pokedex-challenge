@@ -11,9 +11,11 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
+    loader: pokemonLoader,
     children: [
-      { path: "/", element: <Home />, loader: pokemonLoader, errorElement: <Error />  },
-      { path: "game", element: <Game />, errorElement: <Error /> },
+      { path: "/", element: <Home />,  },
+      { path: "game", element: <Game />,  },
       { path: "langs", element: <section>Langs</section> },
       { path: "types", element: <Types /> },
       { path: "generations", element: <Generations /> },
