@@ -33,8 +33,8 @@ export const Home = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
-      if(bottom) loadPokemons();
+      const bottom = window.innerHeight + window.scrollY >= (document.body.offsetHeight - 100);
+      if(bottom && !loading) loadPokemons();
     }
 
     window.addEventListener('scroll', handleScroll)

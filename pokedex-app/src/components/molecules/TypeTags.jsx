@@ -2,7 +2,7 @@ import { Image } from "../atoms/Image"
 import { Text } from "../atoms/Text"
 import './TypeTags.css'
 
-export const TypeTags = ({types}) => {
+export const TypeTags = ({types = [], text = true}) => {
   const categoriesColors = {
     grass: 'green',
     poison: 'purple',
@@ -15,21 +15,21 @@ export const TypeTags = ({types}) => {
     ground: 'dark-orange',
     rock: 'dark-gray',
     fairy: 'pink',
-    dragon: 'blue',
-    ghost: 'gray',
-    dark: 'light-blue',
-    ice: 'yellow',
-    steel: 'dark-orange',
-    psychic: 'dark-gray',
-    fighting: 'pink',
+    dragon: 'dark-blue',
+    ghost: 'violet',
+    dark: 'dark',
+    ice: 'light-blue-2',
+    steel: 'dark-blue-2',
+    psychic: 'dark-pink',
+    fighting: 'dark-pink-2',
   }
 
   return (
-    <ul className="categories-tags">
+    <ul className={`${text ? 'categories-tags' : 'categories-tags-icon'}`}>
       {types.map((row,idx) => (
         <li key={idx} className={`category-tag category-${categoriesColors[row.type.name]}`}>
           <Image src={`/icons/${row.type.name}.svg`} alt={row.type.name} classname={'category-icon'} ></Image>
-          <Text classname={'pokemon-category'} >{row.type.name}</Text>
+          {text && <Text classname={'pokemon-category'} >{row.type.name}</Text>}
         </li>
       ))}
     </ul>

@@ -66,3 +66,18 @@
 .hidden {
   width: 15em;
 }
+
+.full-pokeball-img,
+.pattern-detail-img {
+  width: 100%;
+}
+
+.pokemon-detail {
+  position: absolute;
+  top: 10em;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 25em;
+}

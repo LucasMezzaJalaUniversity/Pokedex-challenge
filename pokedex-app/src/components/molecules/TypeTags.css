@@ -5,6 +5,14 @@
   border-radius: 3px;
 }
 
+.categories-tags-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .75em;
+  border-radius: 50%;
+}
+
 .category-green {
   background-color: #62B957;
 }
@@ -47,6 +55,34 @@
 
 .category-pink {
   background-color: #ED6EC7;
+}
+
+.category-dark-pink {
+  background-color: #EA5D60;
+}
+
+.category-dark-pink-2 {
+  background-color: #D04164;
+}
+
+.category-light-blue-2 {
+  background-color: #61CEC0;
+}
+
+.category-dark-blue {
+  background-color: #0F6AC0;
+}
+
+.category-violet {
+  background-color: #556AAE;
+}
+
+.category-dark {
+  background-color: #58575F;
+}
+
+.category-dark-blue-2 {
+  background-color: #417D9A;
 }
 
 

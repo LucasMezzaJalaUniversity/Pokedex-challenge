@@ -15,6 +15,17 @@
   cursor: pointer;
 }
 
+.detail-btn {
+  padding: 1em 3em;
+  border-radius: 10px;
+  background-color: #EA5D60;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  width: 100%;
+}
+
 .logo {
   display: flex;
   align-items: center;
