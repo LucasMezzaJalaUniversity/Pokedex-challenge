@@ -5,12 +5,13 @@
   border-radius: 3px;
 }
 
-.categories-tags-icon {
+.category-tags-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: .75em;
   border-radius: 50%;
+  width: max-content;
 }
 
 .category-green {

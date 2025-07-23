@@ -1,12 +1,18 @@
 .pokemon-name {
-  color: #fff;
   font-size: 32px;
   text-transform: capitalize;
 }
 
 .pokemon-id {
-  color: #fff;
   font-size: 12px;
+}
+
+.color-white {
+  color: #fff;
+}
+
+.color-black {
+  color: #000;
 }
 
 .pokemon-category {

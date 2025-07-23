@@ -1,7 +1,12 @@
-.category-icon {
+.category-icon-text {
   width: 10px;
   height: 10px;
   margin-right: 4px;
+}
+
+.category-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .pokemon-img {

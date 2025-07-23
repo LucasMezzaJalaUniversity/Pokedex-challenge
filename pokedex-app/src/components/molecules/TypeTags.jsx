@@ -25,10 +25,10 @@ export const TypeTags = ({types = [], text = true}) => {
   }
 
   return (
-    <ul className={`${text ? 'categories-tags' : 'categories-tags-icon'}`}>
+    <ul className="categories-tags">
       {types.map((row,idx) => (
-        <li key={idx} className={`category-tag category-${categoriesColors[row.type.name]}`}>
-          <Image src={`/icons/${row.type.name}.svg`} alt={row.type.name} classname={'category-icon'} ></Image>
+        <li key={idx} className={`${text ? 'category-tag' : 'category-tags-icon'} category-${categoriesColors[row.type.name]}`}>
+          <Image src={`/icons/${row.type.name}.svg`} alt={row.type.name} classname={`${text ? 'category-icon-text' : 'category-icon'}`} ></Image>
           {text && <Text classname={'pokemon-category'} >{row.type.name}</Text>}
         </li>
       ))}

@@ -2,3 +2,12 @@
   display: flex;
   flex-direction: column;
 }
+
+.pokemon-identity-detail p:first-child {
+  font-size: 2em;
+}
+
+.pokemon-identity-detail p:last-child {
+  font-size: 3em;
+  font-weight: 700;
+}

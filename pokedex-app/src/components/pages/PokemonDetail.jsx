@@ -49,13 +49,15 @@ const PokemonDetail = () => {
         null : (
         <>
           <article style={{ flex: 1}}>
-            <PokemonIdentity name={pokemon.name} number={id} />
-            <div>
-              <p>Generation 1</p>
-              <TypeTags types={pokemon.types} text={false} />
-            </div>
-            <div>
+            <div style={{ padding: "2em 4em"}}>
+              <PokemonIdentity name={pokemon.name} number={id} color="black" classname={"pokemon-identity-detail"} />
+              <div style={{ marginTop: "1em"}}>
+                <p>Generation 1</p>
+                <TypeTags types={pokemon.types} text={false} />
+              </div>
+              <div>
 
+              </div>
             </div>
           </article>
           <aside className={`${pokemon.types && pokemon.types.length > 0 ? `card-color-${categoriesColors[pokemon.types[0].type.name]}` : "card-color-default"}`} style={{ flex: 1, padding: "2em", display: "flex",
