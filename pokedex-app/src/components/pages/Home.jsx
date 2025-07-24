@@ -10,17 +10,17 @@ import { EmptyState } from '../molecules/EmptyState'
 const Home = () => {
   const { pokemons, setPokemons, listRef, loading, setLoading } = useContext(PokemonContext);
   const offsetRef = useRef(0);
+  const limitRef = useRef(20);
 
   const loadPokemons = async () => {
     if (loading) return;
 
     setLoading(true)
-    const limit = offsetRef.current === 0 ? 20 : 25; 
-    const data = await getRequestFromAPI(`https://pokeapi.co/api/v2/pokemon?offset=${offsetRef.current}&limit=${limit}`);
+    const data = await getRequestFromAPI(`https://pokeapi.co/api/v2/pokemon?offset=${offsetRef.current}&limit=${limitRef.current}`);
     const pokemonsUrl = data.results.map(row => getRequestFromAPI(row.url))
     const pokemonsDetail = await Promise.all(pokemonsUrl)
 
-    offsetRef.current += limit;
+    offsetRef.current += limitRef.current;
 
     setPokemons(prev => [...prev, ...pokemonsDetail])
     listRef.current = [...listRef.current, ...pokemonsDetail];
@@ -41,12 +41,23 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleLimit = (e) => {
+    const limit = e.target.value;
+    limitRef.current = limit;
+  }
+
   return (
     <section className='home'>
       <div className='header'>
         <SearcherSection></SearcherSection>
       </div>
       <div className='pokemons-board'>
+        <div className='options'>
+          <div>
+            <label htmlFor='limit'>Pokemons per load:</label>
+            <input type="number" id='limit' min={1} defaultValue={20} onChange={handleLimit} />
+          </div>
+        </div>
         {
           pokemons.length == 0 ? 
             loading ? 
