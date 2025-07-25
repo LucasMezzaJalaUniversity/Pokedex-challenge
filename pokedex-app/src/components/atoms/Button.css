@@ -33,3 +33,20 @@
   border: none;
   cursor: pointer;
 }
+
+.tab {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-bottom: 3px solid #17171B80;
+  color: #17171B80;
+  font-size: 1.125em;  
+  font-weight: 700;
+}
+
+.tab.active {
+  color: #EA5D60;
+  border-bottom: 3px solid #EA5D60;
+}

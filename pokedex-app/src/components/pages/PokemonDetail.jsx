@@ -5,6 +5,7 @@ import { PokemonIdentity } from "../molecules/PokemonIdentity";
 import { TypeTags } from "../molecules/TypeTags";
 import { Button } from "../atoms/Button";
 import { Image } from "../atoms/Image";
+import { PokemonStats } from "../organisms/PokemonStats";
 
 const PokemonDetail = () => {
   const [pokemon, setPokemon] = useState({});
@@ -55,9 +56,7 @@ const PokemonDetail = () => {
                 <p>Generation 1</p>
                 <TypeTags types={pokemon.types} text={false} />
               </div>
-              <div>
-
-              </div>
+              <PokemonStats />
             </div>
           </article>
           <aside className={`${pokemon.types && pokemon.types.length > 0 ? `card-color-${categoriesColors[pokemon.types[0].type.name]}` : "card-color-default"}`} style={{ flex: 1, padding: "2em", display: "flex",
