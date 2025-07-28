@@ -1,39 +1,52 @@
 import { useContext } from "react";
 import { DetailPokemonContext } from "../../contexts/DetailPokemonContext";
+import './Data.css'
 
 export const Data = () => {
-  const { pokemon } = useContext(DetailPokemonContext);
+  const { detailPokemon } = useContext(DetailPokemonContext);
 
-  console.log(pokemon, pokemon.species)
+  function format(input) {
+    const str = input.toString().padStart(2, '0');
+    return str.split('').join('.');
+  }
   
   return (
-    (pokemon || Object.values(pokemon).length > 0) ? (
-      <div>
+    (!detailPokemon || Object.values(detailPokemon).length === 0) ? 
+      <p>There is not data available</p> : (
+      <div className="data">
         <h3>About this Pokemon:</h3>
         <p></p>
         <ul>
           <li>
-            <em></em>
+            <em>Species</em>
             <span></span>
           </li>
           <li>
-            <em></em>
-            <span></span>
+            <em>Height</em>
+            <span>{format(detailPokemon.height)}m</span>
           </li>
           <li>
-            <em></em>
-            <span></span>
+            <em>Weight</em>
+            <span>{format(detailPokemon.weight)}kg</span>
           </li>
           <li>
-            <em></em>
-            <span></span>
+            <em>Abilities</em>
+            {detailPokemon.abilities.length > 0 ? (
+              <ul>
+                {detailPokemon.abilities.map((row, idx) => (
+                  <li key={idx}>
+                    <span>{row.ability.name} {row.is_hidden ? " (hidden ability)" : ""}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : <span></span>}
           </li>
           <li>
-            <em></em>
+            <em>Weaknesses</em>
             <span></span>
           </li>
         </ul>
       </div>
-    ) : <p>There is not data available</p>
+    )
   );
 }

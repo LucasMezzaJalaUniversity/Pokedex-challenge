@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { DetailPokemonContext } from './DetailPokemonContext';
 
 export function DetailPokemonProvider({ children }) {
-  const [pokemon, setPokemon] = useState([]);
+  const [detailPokemon, setDetailPokemon] = useState({});
   
   return (
-    <DetailPokemonContext.Provider value={{ pokemon, setPokemon }}>
+    <DetailPokemonContext.Provider value={{ detailPokemon, setDetailPokemon }}>
       {children}
     </DetailPokemonContext.Provider>
   );

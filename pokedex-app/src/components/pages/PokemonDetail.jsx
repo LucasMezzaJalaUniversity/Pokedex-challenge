@@ -10,7 +10,7 @@ import { DetailPokemonContext } from '../../contexts/DetailPokemonContext'
 
 
 const PokemonDetail = () => {
-  const { pokemon, setPokemon } = useContext(DetailPokemonContext);
+  const { detailPokemon, setDetailPokemon } = useContext(DetailPokemonContext);
 
   const { id } = useParams();
   const { listRef } = useContext(PokemonContext);
@@ -35,37 +35,35 @@ const PokemonDetail = () => {
       return;
     }
 
-    const pokemon = listRef.current.find(p => p.id === Number(id));
-    if (!pokemon || Object.values(pokemon).length === 0) {
+    const foundPokemon = listRef.current.find(p => p.id === Number(id));
+    if (!foundPokemon || Object.values(foundPokemon).length === 0) {
       navigate("/");
       return;
     }
 
-  console.log(pokemon)
-
-    setPokemon(pokemon);
+    setDetailPokemon(foundPokemon);
   }, [id]);
 
   return (
     <section style={{ display: "flex", height: "calc(100vh - 3em)"}}>
-      {!listRef?.current || listRef.current.length === 0 && (!pokemon || Object.values(pokemon).length === 0) ?
+      {!listRef?.current || listRef.current.length === 0 && (!detailPokemon || Object.values(detailPokemon).length === 0) ?
         null : (
         <>
           <article style={{ flex: 1}}>
             <div style={{ padding: "2em 4em"}}>
-              <PokemonIdentity name={pokemon.name} number={id} color="black" classname={"pokemon-identity-detail"} />
+              <PokemonIdentity name={detailPokemon.name} number={id} color="black" classname={"pokemon-identity-detail"} />
               <div style={{ marginTop: "1em"}}>
                 <p>Generation 1</p>
-                <TypeTags types={pokemon.types} text={false} />
+                <TypeTags types={detailPokemon.types} text={false} />
               </div>
               <PokemonStats />
             </div>
           </article>
-          <aside className={`${pokemon.types && pokemon.types.length > 0 ? `card-color-${categoriesColors[pokemon.types[0].type.name]}` : "card-color-default"}`} style={{ flex: 1, padding: "2em", display: "flex",
+          <aside className={`${detailPokemon.types && detailPokemon.types.length > 0 ? `card-color-${categoriesColors[detailPokemon.types[0].type.name]}` : "card-color-default"}`} style={{ flex: 1, padding: "2em", display: "flex",
             justifyContent: "space-between", flexDirection: "column", position: "relative" }}>
             <Image src={`/icons/pattern-detail.svg`} alt={'pattern'} classname={'pattern-detail-img'} ></Image>
             <div style={{ width: "60%", margin: "auto"}}>
-              <Image src={pokemon.sprites ? pokemon.sprites.front_default : ''} alt={"pokemon"} classname={'pokemon-detail'} ></Image>
+              <Image src={detailPokemon.sprites ? detailPokemon.sprites.front_default : ''} alt={"pokemon"} classname={'pokemon-detail'} ></Image>
               <Image src={`/icons/full-pokeball.svg`} alt={'Pokeball'} classname={'full-pokeball-img'} ></Image>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "1em"}}>

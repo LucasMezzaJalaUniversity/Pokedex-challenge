@@ -14,9 +14,11 @@ export const PokemonStats = () => {
   return (
     <div style={{ marginTop: "2em" }}>
       <Tabs handleChange={handleChange} current={current} />
-      {current === "data" && <Data />}
-      {current === "stats" && <Stats />}
-      {current === "evolution" && <Evolution />}
+      <div style={{padding: "1em", boxShadow: "0px 4px 4px 0px #00000040"}}>
+        {current === "data" && <Data />}
+        {current === "stats" && <Stats />}
+        {current === "evolution" && <Evolution />}
+      </div>
     </div>
   );
 }

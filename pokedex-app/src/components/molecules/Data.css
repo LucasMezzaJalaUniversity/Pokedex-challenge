@@ -1,0 +1,20 @@
+.data h3 {
+  color: #62B957;
+}
+
+.data em {
+  font-weight: 700;
+  font-style: normal;
+  width: 5em;
+  min-width: 6em;
+}
+
+.data span {
+  color: #747476;
+}
+
+.data > ul > li {
+  display: flex;
+  align-items: start;
+  margin-top: .5em;
+}
