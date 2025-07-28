@@ -45,7 +45,7 @@ const PokemonDetail = () => {
   }, [id]);
 
   return (
-    <section style={{ display: "flex", height: "calc(100vh - 3em)"}}>
+    <section style={{ display: "flex", height: "calc(100vh - 48px)"}}>
       {!listRef?.current || listRef.current.length === 0 && (!detailPokemon || Object.values(detailPokemon).length === 0) ?
         null : (
         <>
@@ -62,7 +62,7 @@ const PokemonDetail = () => {
           <aside className={`${detailPokemon.types && detailPokemon.types.length > 0 ? `card-color-${categoriesColors[detailPokemon.types[0].type.name]}` : "card-color-default"}`} style={{ flex: 1, padding: "2em", display: "flex",
             justifyContent: "space-between", flexDirection: "column", position: "relative" }}>
             <Image src={`/icons/pattern-detail.svg`} alt={'pattern'} classname={'pattern-detail-img'} ></Image>
-            <div style={{ width: "60%", margin: "auto"}}>
+            <div style={{ width: "55%", margin: "auto"}}>
               <Image src={detailPokemon.sprites ? detailPokemon.sprites.front_default : ''} alt={"pokemon"} classname={'pokemon-detail'} ></Image>
               <Image src={`/icons/full-pokeball.svg`} alt={'Pokeball'} classname={'full-pokeball-img'} ></Image>
             </div>

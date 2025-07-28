@@ -1,4 +1,5 @@
 import { Button } from "../atoms/Button";
+import './Tabs.css'
 
 export const Tabs = ({ handleChange, current }) => {
   const tabs = [
@@ -8,7 +9,7 @@ export const Tabs = ({ handleChange, current }) => {
   ];
 
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-around", marginBottom: "1em" }}>
+    <div className="tabs">
       {tabs.map((tab) => (
         <Button
           key={tab.value}
