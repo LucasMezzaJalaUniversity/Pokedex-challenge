@@ -1,0 +1,25 @@
+.stat em {
+  font-weight: 700;
+  font-style: normal;
+  width: 7em;
+  min-width: 7em;
+}
+
+.stat span {
+  color: #747476;
+}
+
+.stat > ul > li {
+  display: flex;
+  align-items: start;
+  margin-top: .5em;
+}
+.stat .container {
+  width: 100%;
+  display: flex;
+  margin: auto .5em;
+}
+.stat .stat-bar {
+  background-color: #62B957;
+  height: .25em;
+}
