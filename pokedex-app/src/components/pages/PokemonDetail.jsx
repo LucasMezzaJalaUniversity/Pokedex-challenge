@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { PokemonContext } from "../../contexts/PokemonContext";
 import { PokemonIdentity } from "../molecules/PokemonIdentity";
@@ -6,9 +6,12 @@ import { TypeTags } from "../molecules/TypeTags";
 import { Button } from "../atoms/Button";
 import { Image } from "../atoms/Image";
 import { PokemonStats } from "../organisms/PokemonStats";
+import { DetailPokemonContext } from '../../contexts/DetailPokemonContext'
+
 
 const PokemonDetail = () => {
-  const [pokemon, setPokemon] = useState({});
+  const { pokemon, setPokemon } = useContext(DetailPokemonContext);
+
   const { id } = useParams();
   const { listRef } = useContext(PokemonContext);
   const navigate = useNavigate();
@@ -38,6 +41,8 @@ const PokemonDetail = () => {
       return;
     }
 
+  console.log(pokemon)
+
     setPokemon(pokemon);
   }, [id]);
 
@@ -60,12 +65,12 @@ const PokemonDetail = () => {
             justifyContent: "space-between", flexDirection: "column", position: "relative" }}>
             <Image src={`/icons/pattern-detail.svg`} alt={'pattern'} classname={'pattern-detail-img'} ></Image>
             <div style={{ width: "60%", margin: "auto"}}>
-              <Image src={pokemon.sprites ? pokemon.sprites.front_default : ''} alt={pokemon.name} classname={'pokemon-detail'} ></Image>
+              <Image src={pokemon.sprites ? pokemon.sprites.front_default : ''} alt={"pokemon"} classname={'pokemon-detail'} ></Image>
               <Image src={`/icons/full-pokeball.svg`} alt={'Pokeball'} classname={'full-pokeball-img'} ></Image>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "1em"}}>
               <Link style={{ display: "flex", width: "100%", color: "inherit", textDecoration: "none" }} to={`/pokemon/${Number(id) === 1 ? listRef.current.length : Number(id) - 1}`}>
-                <Button classname={'detail-btn'}>Previous {Number(id) === 1 ? listRef.current.length : Number(id) - 1}</Button>   
+                <Button classname={'detail-btn-white'}>Previous {Number(id) === 1 ? listRef.current.length : Number(id) - 1}</Button>   
               </Link>
               <Link style={{ display: "flex", width: "100%", color: "inherit", textDecoration: "none" }} to={`/pokemon/${Number(id) === listRef.current.length ? 1 : Number(id) + 1}`}>  
                 <Button classname={'detail-btn'}>Next {Number(id) === listRef.current.length ? 1 : Number(id) + 1}</Button>

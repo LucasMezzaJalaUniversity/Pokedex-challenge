@@ -7,5 +7,3 @@ export const PokemonContext = createContext({
   loading: false, 
   setLoading: () => {}
 })
-
-// export const usePokemonsContext = () => useContext(PokemonContext);
