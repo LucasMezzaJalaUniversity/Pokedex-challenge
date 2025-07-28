@@ -5,6 +5,7 @@ import './index.css';
 import App from './App.jsx';
 import { PokemonProvider } from './contexts/PokemonProvider.jsx';
 import { Loading } from "./components/molecules/Loading.jsx";
+import { NotFound } from "./components/pages/NotFound.jsx";
 
 const Home = lazy(() => import('./components/pages/Home'));
 const Game = lazy(() => import('./components/pages/Game'));
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="langs" element={<Langs />} />
             <Route path="types" element={<Types />} />
             <Route path="generations" element={<Generations />} />  
+            <Route path="*" element={<NotFound />} />  
           </Route>
         </Routes>
       </Suspense>

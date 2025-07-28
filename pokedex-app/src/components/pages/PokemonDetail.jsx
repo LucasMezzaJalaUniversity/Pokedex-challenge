@@ -28,15 +28,12 @@ const PokemonDetail = () => {
 
   useEffect(() => { 
     if (!listRef?.current || listRef.current.length === 0) {
-      console.log("entra")
       navigate("/");
       return;
     }
 
     const pokemon = listRef.current.find(p => p.id === Number(id));
-    console.log("pok", pokemon)
     if (!pokemon || Object.values(pokemon).length === 0) {
-      console.log("entra2")
       navigate("/");
       return;
     }
