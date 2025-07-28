@@ -1,19 +1,17 @@
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useReducer, useRef } from "react"
 import { PokemonContext } from "../../contexts/PokemonContext"
 import { Button } from "../atoms/Button"
 import { Image } from "../atoms/Image"
 import { Languages } from "../molecules/Languages"
 import './Game.css'
 import { EmptyState } from "../molecules/EmptyState"
+import { gameReducer, initialState } from "../../reducers/gameReducer"
 
 const Game = () => {
   const { listRef } = useContext(PokemonContext);
   const gameList = useRef([]);
-  const [score, setScore] = useState(0);
-  const [selectedPokemon, setSelectedPokemon] = useState(null);
-  const [failCount, setFailCount] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const [revealed, setRevealed] = useState(false);
+  const [state, dispatch] = useReducer(gameReducer, initialState);
+  const { score, failCount, gameOver, revealed, selectedPokemon } = state;
 
   useEffect(() => {
     if (!listRef?.current || listRef.current.length < 4) return;
@@ -24,36 +22,26 @@ const Game = () => {
       gameList.current[i] = listRef.current[random];
     }
 
-    const selected = Math.floor(Math.random() * 4)
-    setSelectedPokemon(gameList.current[selected]);
-    setRevealed(false);
+    const selected = Math.floor(Math.random() * 4);
+    dispatch({ type: 'SELECTED', payload: gameList.current[selected] });
   }, [score, listRef?.current]);
 
   const handleAnswer = (pokemonName) => {
     if (gameOver) return;
 
     if (pokemonName === selectedPokemon.name) {
-      setRevealed(true);
+      dispatch({ type: 'CORRECT_ANSWER' });
 
       setTimeout(() => {
-        setRevealed(false);
-        setScore(prev => prev + 100);
+        dispatch({ type: 'NEXT_ROUND' });
       }, 2000);
     } else {
-      setFailCount(prev => {
-        if (prev + 1 >= 3) {
-          setGameOver(true);
-        }
-        return prev + 1;
-      });
+      dispatch({ type: 'WRONG_ANSWER' });
     }
   };
 
   const handleRestart = () => {
-    setScore(0);
-    setSelectedPokemon(null);
-    setFailCount(0);
-    setGameOver(false);
+    dispatch({ type: 'RESTART' });
   }
 
   return (

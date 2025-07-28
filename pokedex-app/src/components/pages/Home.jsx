@@ -11,11 +11,14 @@ const Home = () => {
   const { pokemons, setPokemons, listRef, loading, setLoading } = useContext(PokemonContext);
   const offsetRef = useRef(0);
   const limitRef = useRef(20);
+  const scrollLock = useRef(false);
 
   const loadPokemons = async () => {
-    if (loading) return;
+    if (loading || scrollLock.current) return;
 
-    setLoading(true)
+    scrollLock.current = true;
+    setLoading(true);
+
     const data = await getRequestFromAPI(`https://pokeapi.co/api/v2/pokemon?offset=${offsetRef.current}&limit=${limitRef.current}`);
     const pokemonsUrl = data.results.map(row => getRequestFromAPI(row.url))
     const pokemonsDetail = await Promise.all(pokemonsUrl)
@@ -24,7 +27,9 @@ const Home = () => {
 
     setPokemons(prev => [...prev, ...pokemonsDetail])
     listRef.current = [...listRef.current, ...pokemonsDetail];
+    
     setLoading(false);
+    scrollLock.current = false;
   }
 
   useEffect(() => {
@@ -42,7 +47,7 @@ const Home = () => {
   }, [])
 
   const handleLimit = (e) => {
-    const limit = e.target.value;
+    const limit = Number(e.target.value);
     limitRef.current = limit;
   }
 
@@ -66,6 +71,9 @@ const Home = () => {
               <EmptyState text={'Pokemons not found'} />
           : (
             <>
+              <div style={{ marginLeft: "1em"}}>
+                <span>{pokemons.length} pokemons loaded</span>
+              </div>
               <div className='pokemons'>
                 {pokemons.map((row, idx) => (
                   <PokemonCard pokemon={row} key={idx}/>
